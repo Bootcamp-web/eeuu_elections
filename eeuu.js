@@ -583,8 +583,6 @@ let results = {
 
   for (let key in results.votes)
   {
-  
-    
 
     for (let kDemo  in results.votes[key].electoral)
     {
