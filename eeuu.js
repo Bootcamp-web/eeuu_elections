@@ -577,26 +577,31 @@ let results = {
       democrat: 0,
       republican: 0
     },
-     others: {
-      democrat: 0,
-      republican: 0
-    }
+     other: 0
+      
   };
 
   for (let key in results.votes)
   {
   
-   total.electoral.democrat += results.votes[key].electoral.democrat;
-   total.electoral.republican += results.votes[key].electoral.republican;
-    total.popular.democrat += results.votes[key].popular.democrat;
-   total.popular.republican += results.votes[key].popular.republican;
-     total.others.democrat += results.votes[key].others.democrat;
-   total.others.republican += results.votes[key].others.republican;
-  
+    
+
+    for (let kDemo  in results.votes[key].electoral)
+    {
+      total.electoral.democrat += results.votes[key].electoral[kDemo];
+      total.electoral.republican += results.votes[key].electoral[kDemo];
+      
+    }
+    for (let kPopular  in results.votes[key].popular)
+    {
+      total.popular.democrat += results.votes[key].popular[kPopular];
+      total.popular.republican += results.votes[key].popular[kPopular];
+      
+    }
+    total.other += results.votes[key].popular.other
   
   } 
   console.log(total)
   
 
 
-console.log('Hello world')  
