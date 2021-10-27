@@ -586,14 +586,26 @@ let results = {
 
     for (let kDemo  in results.votes[key].electoral)
     {
-      total.electoral.democrat += results.votes[key].electoral[kDemo];
-      total.electoral.republican += results.votes[key].electoral[kDemo];
-      
+  
+      if (kDemo == 'democrat'){
+        
+        total.electoral.democrat += results.votes[key].electoral[kDemo];
+      }else{
+       
+        total.electoral.republican += results.votes[key].electoral[kDemo];
+      }   
     }
+
     for (let kPopular  in results.votes[key].popular)
     {
-      total.popular.democrat += results.votes[key].popular[kPopular];
-      total.popular.republican += results.votes[key].popular[kPopular];
+      
+      if (kPopular == 'democrat'){
+        total.popular.democrat += results.votes[key].popular[kPopular];
+      }else{
+       
+        total.popular.republican += results.votes[key].popular[kPopular];
+      }
+      
       
     }
     total.other += results.votes[key].popular.other
